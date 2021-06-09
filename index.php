@@ -62,7 +62,9 @@
             <img src="img/loader.gif" alt="preloader">
         </div>
         <div class="container card" style="padding: 10px 10px 10px 10px;background: #fff;margin-top: 10px;margin-bottom: 10px;">
-            <h4>Daraz Scrapper</h4>
+            <div style="display:flex; flex-direction:row;">
+            <img src="img/daraz-logo.png" alt="Daraz" style="height:25px;"><h4 class="pl-2 mb-0"> Scrapper</h4><!--<h4>Daraz Scrapper</h4>-->
+            </div>
             <hr>
             <form class="form-row">
 
