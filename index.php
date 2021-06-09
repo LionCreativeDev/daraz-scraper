@@ -61,6 +61,37 @@
         <div class="preloader" style="display: none;">
             <img src="img/loader.gif" alt="preloader">
         </div>
+
+        <div class="container p-0">
+            <div class="alert alert-success alert-dismissible fade mt-3 card alertsuccess" role="alert" style="display:none;">
+                <strong>Success!</strong> <span class="message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="alert alert-info alert-dismissible fade mt-3 card alertinfo" role="alert" style="display:none;">
+                <strong>Info!</strong> <span class="message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="alert alert-warning alert-dismissible fade mt-3 card alertwarning" role="alert" style="display:none;">
+                <strong>Warning!</strong> <span class="message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+            <div class="alert alert-danger alert-dismissible fade mt-3 card alertdanger" role="alert" style="display:none;">
+                <strong>Danger!</strong> <span class="message"></span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
+
         <div class="container card" style="padding: 10px 10px 10px 10px;background: #fff;margin-top: 10px;margin-bottom: 10px;">
             <div style="display:flex; flex-direction:row;">
             <img src="img/daraz-logo.png" alt="Daraz" style="height:25px;"><h4 class="pl-2 mb-0"> Scrapper</h4><!--<h4>Daraz Scrapper</h4>-->
@@ -70,7 +101,7 @@
 
                 <div class="form-group col-md-9">
                     <label for="searchterm">Product Name: </label>
-                    <input type="text" class="form-control" placeholder="ie: dinner" id="searchterm">
+                    <input type="text" class="form-control" placeholder="ie: dell laptop" id="searchterm">
                 </div>
 
                 <div class="form-group col-md-3">
@@ -127,6 +158,17 @@
         <script type="text/javascript" language="javascript">
 
             var interval;
+            function hideMessages()
+            {
+                $("div[role='alert']").removeClass("fade show").hide().find(".message").text("");
+            }
+
+            function showMessage(type, message)
+            {
+                hideMessages();
+                $(".alert"+type).addClass("fade show").show().find(".message").text(message);
+            }
+
             function bildDataTable(){
                 $('.table').DataTable({
                 "lengthMenu": [ [1000, 5000, 10000, 50000, -1], [1000, 5000, 10000, 50000, "All"] ],
@@ -179,6 +221,14 @@
                                 row.removeClass("not");
                                 row.find(".imgloader").hide();
                             }
+                            else
+                            {
+                                showMessage("danger", result["message"]);
+                            }
+                        }
+                        error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                            showMessage("danger", "Some thing went wrong!");
+                            $(".preloader").hide();
                         }
                     });
                     //console.log('url: ',url);
@@ -219,6 +269,15 @@
                                     interval = setInterval(getStockDetails, 2000);
                                     $(".preloader").hide();
                                 }
+                                else
+                                {
+                                    showMessage("danger", result["message"]);
+                                    $(".preloader").hide();
+                                }
+                            }
+                            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                                showMessage("danger", "Some thing went wrong!");
+                                $(".preloader").hide(); 
                             }
                         });
                     }
