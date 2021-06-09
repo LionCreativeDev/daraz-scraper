@@ -40,23 +40,38 @@
                 align-items: center;
                 justify-content: center;
             }
+
+            .card {
+                /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                border-radius: 5px;*/ /* 5px rounded corners */
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);                
+                /*text-align: center;*/
+                font-family: arial;
+                transition: 0.3s;
+                border-radius: 5px;
+            }            
+            .card:hover {
+                box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+            
         </style>
     </head>
     <body style="background: #efecec;">
         <div class="preloader" style="display: none;">
             <img src="img/loader.gif" alt="preloader">
         </div>
-        <div class="container" style="padding: 10px 10px 10px 10px;background: #fff;margin-top: 10px;margin-bottom: 10px;">
+        <div class="container card" style="padding: 10px 10px 10px 10px;background: #fff;margin-top: 10px;margin-bottom: 10px;">
             <h4>Daraz Scrapper</h4>
             <hr>
             <form class="form-row">
 
-                <div class="form-group col-md-10">
+                <div class="form-group col-md-9">
                     <label for="searchterm">Product Name: </label>
                     <input type="text" class="form-control" placeholder="ie: dinner" id="searchterm">
                 </div>
 
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-3">
                     <br>
                     <button type="submit" class="btn btn-primary callScraper" name="callScraper" style="margin-top: 7px; float:right;" value="true">Scrape Product Details</button>
                 </div>
@@ -64,7 +79,7 @@
             </form>            
         </div>
 
-        <div class="container rc" style="padding: 10px 10px 10px 10px;background: #fff;margin-top: 20px;margin-bottom: 10px; display:none;">
+        <div class="container rc card" style="padding: 10px 10px 10px 10px;background: #fff;margin-top: 20px;margin-bottom: 10px; display:none;">
             <div class="table-responsive">
                 <h4>Daraz Scrapped Results</h4>
                 

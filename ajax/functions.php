@@ -157,13 +157,14 @@ function parseproduct_result($html)
 
 if(isset($_GET["action"]) && $_GET["action"] === "scrape_product" && isset($_GET["searchterm"]) && $_GET["searchterm"] !== "")
 {
-	ScrapeProductslocal();
-    //ScrapeProducts($_GET["searchterm"]);
+	//ScrapeProductslocal();
+    $input = str_replace(' ', '+', trim($_GET["searchterm"]));
+    ScrapeProducts($input);
 }
 elseif(isset($_GET["action"]) && $_GET["action"] === "scrape_stock" && isset($_GET["product_url"]) && $_GET["product_url"] !== "")
 {
-	ScrapeProductDetailslocal();
-    //ScrapeProductDetails($_GET["product_url"]);
+	//ScrapeProductDetailslocal();
+    ScrapeProductDetails($_GET["product_url"]);
 }
 
 ?>
