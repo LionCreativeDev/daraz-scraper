@@ -171,10 +171,10 @@
 
             function bildDataTable(){
                 $('.table').DataTable({
-                "lengthMenu": [ [1000, 5000, 10000, 50000, -1], [1000, 5000, 10000, 50000, "All"] ],
+                //"lengthMenu": [ [1000, 5000, 10000, 50000, -1], [1000, 5000, 10000, 50000, "All"] ],
                 dom: 'Bfrtip',
                 buttons: [
-                    'pageLength',
+                    //'pageLength',
                     'copy',
                     {
                         extend: 'csvHtml5',
@@ -225,7 +225,7 @@
                             {
                                 showMessage("danger", result["message"]);
                             }
-                        }
+                        },
                         error: function(XMLHttpRequest, textStatus, errorThrown) { 
                             showMessage("danger", "Some thing went wrong!");
                             $(".preloader").hide();
@@ -274,7 +274,7 @@
                                     showMessage("danger", result["message"]);
                                     $(".preloader").hide();
                                 }
-                            }
+                            },
                             error: function(XMLHttpRequest, textStatus, errorThrown) { 
                                 showMessage("danger", "Some thing went wrong!");
                                 $(".preloader").hide(); 
