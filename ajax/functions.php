@@ -81,7 +81,7 @@ function parse_result($html)
         if(isset($array["mods"]["listItems"])){
             foreach ($array["mods"]["listItems"] as $value)
             {
-                if($no <= 15)
+                if($no <= 30)
                     array_push($products, array("no"=>$no, "itemId"=>$value["itemId"], "image"=>$value["image"], "name"=>$value["name"], "priceShow"=>$value["priceShow"], "ratingScore"=>$value["ratingScore"], "review"=>$value["review"], "location"=>$value["location"], "brandName"=>$value["brandName"], "sellerName"=>$value["sellerName"], "inStock"=>($value["inStock"] ? 'true':'false'), "productUrl"=>$value["productUrl"]));
                 $no++;
             }

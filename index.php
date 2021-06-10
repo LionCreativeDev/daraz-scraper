@@ -171,10 +171,11 @@
 
             function bildDataTable(){
                 $('.table').DataTable({
-                //"lengthMenu": [ [1000, 5000, 10000, 50000, -1], [1000, 5000, 10000, 50000, "All"] ],
+                "lengthMenu": [ [30, 20, 15, 10, 5, -1], [30, 20, 15, 10, 5, "All"] ],
+                'pageLength': 15,
                 dom: 'Bfrtip',
                 buttons: [
-                    //'pageLength',
+                    'pageLength',
                     'copy',
                     {
                         extend: 'csvHtml5',
@@ -266,7 +267,7 @@
 
                                     //bildDataTable();
                                     $(".rc").show();
-                                    interval = setInterval(getStockDetails, 2000);
+                                    interval = setInterval(getStockDetails, 1000);
                                     $(".preloader").hide();
                                 }
                                 else
@@ -278,6 +279,9 @@
                             error: function(XMLHttpRequest, textStatus, errorThrown) { 
                                 showMessage("danger", "Some thing went wrong!");
                                 $(".preloader").hide(); 
+                            },
+                            complete: function (jqXHR, status) {
+                                $(".preloader").hide();
                             }
                         });
                     }
