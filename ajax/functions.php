@@ -34,7 +34,6 @@ function ScrapeProducts($input){
     $c = curl_init('https://www.daraz.pk/catalog/?q='.$input.'&from=suggest_normal&sugg='.$input);
     curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($c, CURLOPT_USERAGENT, $ua);
-    curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($c, CURLOPT_SSL_VERIFYHOST,false);
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
     curl_setopt($c, CURLOPT_MAXREDIRS, 10);
@@ -105,7 +104,6 @@ function ScrapeProductDetails($productUrl)
     $c = curl_init($productUrl);
     curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($c, CURLOPT_USERAGENT, $ua);
-    curl_setopt($c, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($c, CURLOPT_SSL_VERIFYHOST,false);
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
     curl_setopt($c, CURLOPT_MAXREDIRS, 10);
