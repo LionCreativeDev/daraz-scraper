@@ -171,7 +171,7 @@
 
             function bildDataTable(){
                 $('.table').DataTable({
-                "lengthMenu": [ [30, 20, 15, 10, 5, -1], [30, 20, 15, 10, 5, "All"] ],
+                "lengthMenu": [ [15, 10, 5, -1], [15, 10, 5, "All"] ],
                 'pageLength': 15,
                 dom: 'Bfrtip',
                 buttons: [
@@ -267,7 +267,7 @@
 
                                     //bildDataTable();
                                     $(".rc").show();
-                                    interval = setInterval(getStockDetails, 1000);
+                                    interval = setInterval(getStockDetails, 2000);
                                     $(".preloader").hide();
                                 }
                                 else
