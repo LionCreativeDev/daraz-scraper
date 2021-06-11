@@ -29,7 +29,7 @@ $ua = $useragents[$randIndex];
 function ScrapeProducts($input){
     //$useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36';
     global $ua;
-    $timeout = 5;
+    //$timeout = 5;
 
     $c = curl_init('https://www.daraz.pk/catalog/?q='.$input.'&from=suggest_normal&sugg='.$input);
     curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
@@ -38,7 +38,8 @@ function ScrapeProducts($input){
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
     curl_setopt($c, CURLOPT_MAXREDIRS, 10);
     curl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($c, CURLOPT_CONNECTTIMEOUT, $timeout);
+    curl_setopt($c, CURLOPT_TIMEOUT, 0);
+    //curl_setopt($c, CURLOPT_CONNECTTIMEOUT, $timeout);
 
     $html = curl_exec($c);
 
@@ -99,7 +100,7 @@ function ScrapeProductDetails($productUrl)
 {
     //$useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36';
     global $ua;
-    $timeout = 5;
+    //$timeout = 5;
 
     $c = curl_init($productUrl);
     curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
@@ -108,7 +109,8 @@ function ScrapeProductDetails($productUrl)
     curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
     curl_setopt($c, CURLOPT_MAXREDIRS, 10);
     curl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($c, CURLOPT_CONNECTTIMEOUT, $timeout);
+    curl_setopt($c, CURLOPT_TIMEOUT, 0);
+    //curl_setopt($c, CURLOPT_CONNECTTIMEOUT, $timeout);
 
     $html = curl_exec($c);
 
