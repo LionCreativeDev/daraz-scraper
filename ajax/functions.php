@@ -167,7 +167,7 @@ elseif(isset($_GET["action"]) && $_GET["action"] === "scrape_stock" && isset($_G
     ScrapeProductDetails($_GET["product_url"]);
 }
 
-/** To fetch free proxy from git repo*/
+/** To fetch free proxy from git repo (https://github.com/sunny9577/proxy-scraper)*/
 /*$c = curl_init('https://sunny9577.github.io/proxy-scraper/proxies.json');
 curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0");
