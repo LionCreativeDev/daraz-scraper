@@ -167,4 +167,50 @@ elseif(isset($_GET["action"]) && $_GET["action"] === "scrape_stock" && isset($_G
     ScrapeProductDetails($_GET["product_url"]);
 }
 
+/** To fetch free proxy from git repo*/
+/*$c = curl_init('https://sunny9577.github.io/proxy-scraper/proxies.json');
+curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($c, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:75.0) Gecko/20100101 Firefox/75.0");
+curl_setopt($c, CURLOPT_SSL_VERIFYHOST,false);
+curl_setopt($c, CURLOPT_SSL_VERIFYPEER,false);
+curl_setopt($c, CURLOPT_MAXREDIRS, 10);
+curl_setopt($c, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($c, CURLOPT_TIMEOUT, 0);
+//curl_setopt($c, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+$html = curl_exec($c);
+
+if (curl_error($c))
+    die(curl_error($c));
+
+// Get the status code
+$status = curl_getinfo($c, CURLINFO_HTTP_CODE);
+
+curl_close($c);
+
+//echo $html;
+$myfile = fopen("proxies.txt", "w") or die("Unable to open file!");
+fwrite($myfile, $html);
+fclose($myfile);
+
+$html = file_get_contents("proxies.txt");
+$proxies = json_decode($html, true);
+//print_r($proxies);
+$fetchedproxies = array();
+foreach($proxies["proxynova"] as $proxy)
+{
+    echo $proxy["ip"].':'.$proxy["port"].'<br>';
+    array_push($fetchedproxies, $proxy["ip"].':'.$proxy["port"]);
+}
+
+foreach($proxies["usproxy"] as $proxy)
+{
+    echo $proxy["ip"].':'.$proxy["port"].'<br>';
+    array_push($fetchedproxies, $proxy["ip"].':'.$proxy["port"]);
+}
+//print_r($fetchedproxies);
+$rand_proxies = array_rand(array_flip($fetchedproxies), 10);//array_rand($fetchedproxies, 10);*/
+
+/** To fetch free proxy from git repo*/
+
 ?>
